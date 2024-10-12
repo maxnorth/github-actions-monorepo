@@ -1,5 +1,7 @@
 #! /bin/bash
 
+shopt -s globstar
+
 src_branch=$(git rev-parse --abbrev-ref HEAD)
 current_commit_msg=$(git log -1 --pretty=%B)
 dest_branches=$(ls -d ./**/@*/ | xargs basename | cut -c2- | sort | uniq)
