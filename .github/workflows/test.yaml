@@ -5,4 +5,5 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - run: ./publish.sh
+      - uses: actions/checkout@v4
+      - run: ./@v1/publish.sh
