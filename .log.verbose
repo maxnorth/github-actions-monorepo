@@ -1,0 +1,4 @@
+[v1 ef55914] Fixup
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 test/examples/repo/gcp/helm/action.yaml
+ delete mode 100644 test/examples/repo/my-action/action.yaml
