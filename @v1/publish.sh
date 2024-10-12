@@ -1,4 +1,4 @@
-#! bash
+#! /bin/bash
 
 src_branch=$(git rev-parse --abbrev-ref HEAD)
 current_commit_msg=$(git log -1 --pretty=%B)
