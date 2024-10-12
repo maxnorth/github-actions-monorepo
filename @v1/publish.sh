@@ -28,7 +28,7 @@ for dest_branch in $dest_branches; do
     # commit and push
     git add -A 1> .log.verbose
     git commit -m $current_commit_msg 1> .log.verbose
-    git push -uf origin HEAD
+    git push -uf origin HEAD 1> .log.verbose
 done
 
 git checkout $src_branch
