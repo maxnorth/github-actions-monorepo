@@ -1,5 +1,6 @@
 #! /bin/bash
 
+src_branch=$(git rev-parse --abbrev-ref HEAD)
 current_commit_msg=$(git log -1 --pretty=%B)
 dest_branches=$(ls -d ./**/@*/ | xargs basename | cut -c2- | sort | uniq)
 
@@ -26,3 +27,5 @@ for dest_branch in $dest_branches; do
     git commit -m $current_commit_msg
     git push -u origin HEAD
 done
+
+git checkout $src_branch
