@@ -5,4 +5,4 @@ on:
 
 jobs:
   publish:
-    uses: ./@v1/publish
+    uses: ./.github/workflows/test.yaml
