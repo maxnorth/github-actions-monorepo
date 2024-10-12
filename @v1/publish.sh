@@ -27,7 +27,7 @@ for dest_branch in $dest_branches; do
     # commit and push
     git add -A
     git commit -m $current_commit_msg
-    git push -u origin HEAD
+    git push -uf origin HEAD
 done
 
 git checkout $src_branch
