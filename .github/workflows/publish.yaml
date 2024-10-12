@@ -5,4 +5,4 @@ on:
 
 jobs:
   publish:
-    uses: maxnorth/github-actions-monorepo/publish@v1
+    uses: ./@v1/publish
