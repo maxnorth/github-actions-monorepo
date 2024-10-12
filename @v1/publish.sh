@@ -4,7 +4,7 @@ shopt -s globstar
 
 src_branch=$(git rev-parse --abbrev-ref HEAD)
 current_commit_msg=$(git log -1 --pretty=%B)
-dest_branches=$(ls -d ./**/@*/ | xargs basename | cut -c2- | sort | uniq)
+dest_branches=$(find . -type d -name "@*" | xargs basename | cut -c2- | sort | uniq)
 
 echo "Preparing to publish to branches: $(echo $dest_branches | tr '\n' ',')"
 
@@ -15,16 +15,16 @@ for dest_branch in $dest_branches; do
     # clear existing contents and create new content
     git rm -rf ./*
     git checkout $src_branch .
-    git rm -rf ./**/@*/
+    find . -type d -name "@*" | xargs git rm -rf
     git checkout $src_branch "*/@$dest_branch/*"
 
     # hoist @folder contents up one level
-    for dest_branch_path in ls ./**/@*/; do
+    for dest_branch_path in $(find . -type d -name "@*"); do
         mv ./$dest_branch_path/* ./$dest_branch_path/../
     done
 
     # remove old @folders
-    rm -rf \*\*/@$dest_branch/
+    find . -type d -name "@*" | xargs rm -rf
 
     # commit and push
     git add -A
