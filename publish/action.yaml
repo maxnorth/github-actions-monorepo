@@ -1,0 +1,13 @@
+name: "Publish Github Actions Monorepo"
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - run: |
+        git config --local user.name "GitHub Action"
+        git config --local user.email "action@github.com"
+    - run: ./publish/publish.sh
+      shell: bash
