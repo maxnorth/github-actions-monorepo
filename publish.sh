@@ -2,7 +2,7 @@
 
 src_branch=$(git rev-parse --abbrev-ref HEAD)
 current_commit_msg=$(git log -1 --pretty=%B)
-dest_branches=$(find . -type d -name "@*" | xargs basename | cut -c2- | sort | uniq)
+dest_branches=$(find . -type d -name "@*" -exec basename {} \; | cut -c2- | sort | uniq)
 
 echo "Preparing to publish to branches: $dest_branches"
 
