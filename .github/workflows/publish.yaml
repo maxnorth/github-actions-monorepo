@@ -1,8 +1,8 @@
-# on:
-#   push:
-#     branches:
-#       - main
+on:
+  push:
+    branches:
+      - main
 
-# jobs:
-#   publish:
-#     uses: ./@v1/workflow.yaml
+jobs:
+  publish:
+    uses: maxnorth/github-actions-monorepo/publish@v1
