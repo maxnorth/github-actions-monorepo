@@ -4,6 +4,8 @@ src_branch=$(git rev-parse --abbrev-ref HEAD)
 current_commit_msg=$(git log -1 --pretty=%B)
 dest_branches=$(ls -d ./**/@*/ | xargs basename | cut -c2- | sort | uniq)
 
+echo "Preparing to publish to branches: $(echo $dest_branches | tr '\n' ',')"
+
 for dest_branch in $dest_branches; do
     # switch to branch being deployed
     git checkout $dest_branch || git checkout -b $dest_branch
